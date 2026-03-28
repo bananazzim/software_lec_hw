@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>딸기농장 계획</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('home') }}">홈</a>
+        <a href="{{ url_for('about') }}">자기소개</a>
+        <a href="{{ url_for('strawberry') }}">딸기농장 계획</a>
+    </nav>
+
+    <section>
+        <h1>스마트 딸기 농장 계획표</h1>
+        <p>청년 창업농 준비를 위한 품종별 특징 정리입니다.</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>품종</th>
+                    <th>특징</th>
+                    <th>수확 시기</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>설향</td>
+                    <td>국내 점유율 1위, 과즙 풍부</td>
+                    <td>12월 ~ 5월</td>
+                </tr>
+                <tr>
+                    <td>매향</td>
+                    <td>당도가 높고 저장성이 좋음</td>
+                    <td>1월 ~ 4월</td>
+                </tr>
+                <tr>
+                    <td>킹스베리</td>
+                    <td>크기가 매우 큰 대과형</td>
+                    <td>12월 ~ 4월</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</body>
+</html>
