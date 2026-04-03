@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+
+{% block title %}지형의 스마트팜 - 메인{% endblock %}
+
+{% block content %}
+<section class="p-5 mb-5 shadow-sm" style="background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%); border-radius: 20px;">
+    <div class="row align-items-center">
+        <div class="col-lg-6 text-center text-lg-left mb-5 mb-lg-0">
+            <span class="badge badge-danger px-3 py-2 mb-3 shadow-sm" style="font-size: 0.9rem; border-radius: 20px;">
+                <i class="fas fa-seedling"></i> 청년창업농 특성화 프로젝트
+            </span>
+            <h1 style="border-bottom: none; font-size: 2.8rem; color: #2c3e50; font-weight: 800; line-height: 1.3; padding-bottom: 0;">
+                데이터로 키우는<br>
+                <span style="color: #dc3545;">프리미엄 스마트팜</span>
+            </h1>
+            <p class="text-muted mt-3 mb-4" style="font-size: 1.15rem; line-height: 1.6;">
+                전북 지역의 농업 혁신을 이끕니다.<br>
+                최첨단 환경제어 시스템과 고설 수경재배 기술로<br>
+                가장 안정적이고 달콤한 딸기를 생산합니다.
+            </p>
+            
+            <div class="mt-4">
+                <a href="{{ url_for('strawberry') }}" class="btn btn-danger btn-lg px-4 py-3 shadow-sm mr-2" style="border-radius: 30px; font-weight: bold;">
+                    사업 계획서 확인 <i class="fas fa-arrow-right ml-1"></i>
+                </a>
+                <a href="{{ url_for('about') }}" class="btn btn-outline-dark btn-lg px-4 py-3 shadow-sm" style="border-radius: 30px; font-weight: bold;">
+                    운영자 소개
+                </a>
+            </div>
+        </div>
+        
+        <div class="col-lg-6">
+            <div class="position-relative">
+                <img src="https://images.unsplash.com/photo-1590682680695-43b964a3ae17?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                     alt="스마트팜 전경" 
+                     class="img-fluid shadow-lg" 
+                     style="border-radius: 20px; border: 5px solid white;">
+                <div class="position-absolute bg-white shadow-sm px-3 py-2" style="bottom: -15px; left: -15px; border-radius: 15px;">
+                    <span class="font-weight-bold text-success"><i class="fas fa-leaf"></i> 100% 농약 수경재배</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="row text-center mb-5">
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 border-0 shadow-sm" style="border-radius: 20px;">
+            <div class="card-body p-4">
+                <div class="mb-3">
+                    <i class="fas fa-laptop-code fa-3x text-primary"></i>
+                </div>
+                <h4 class="font-weight-bold">정밀 환경 제어</h4>
+                <p class="text-muted mt-3">파이썬 기반의 데이터를 활용하여 온도, 습도, 광량을 실시간으로 모니터링하고 최적의 생육 환경을 유지합니다.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 border-0 shadow-sm" style="border-radius: 20px;">
+            <div class="card-body p-4">
+                <div class="mb-3">
+                    <i class="fas fa-tint fa-3x text-info"></i>
+                </div>
+                <h4 class="font-weight-bold">자동 관수 시스템</h4>
+                <p class="text-muted mt-3">정밀한 자동화 관수 펌프 제어를 통해 물과 비료의 낭비를 최소화하고 작물에 정확한 영양액을 공급합니다.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 border-0 shadow-sm" style="border-radius: 20px;">
+            <div class="card-body p-4">
+                <div class="mb-3">
+                    <i class="fas fa-box-open fa-3x text-danger"></i>
+                </div>
+                <h4 class="font-weight-bold">프리미엄 출하</h4>
+                <p class="text-muted mt-3">킹스베리 등 고부가가치 대과형 품종을 집중 육성하여 시장 경쟁력을 갖춘 최고급 과일 브랜드를 구축합니다.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

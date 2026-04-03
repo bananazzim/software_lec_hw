@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+
+{% block title %}자기소개 - 조지형{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-4 mb-4">
+        <div class="card shadow-sm border-0" style="border-radius: 20px;">
+            <div class="card-body text-center p-5">
+                <div class="mb-4">
+                    <img src="{{ url_for('static', filename='images/hama.jpg') }}" 
+                class="img-fluid rounded-circle shadow" 
+                         alt="조지형 프로필 사진"
+                         style="width: 150px; height: 150px; object-fit: cover;">
+                </div>
+            <h3 class="font-weight-bold mb-2">조지형</h3>
+                <p class="text-danger font-weight-bold">농부</p>
+                <hr>
+                <div class="text-left mt-4">
+                    <p><i class="fas fa-university mr-2 text-muted"></i> 전북대학교 영농창업특성화</p>
+                    <p><i class="fab fa-github mr-2 text-muted"></i> <a href="https://github.com/bananazzim" class="text-decoration-none text-dark">github.com/bananazzim</a></p>
+                    <p><i class="fas fa-envelope mr-2 text-muted"></i> chojihyung5@naver.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-8">
+        <section class="mb-4 p-4 shadow-sm" style="background: white; border-radius: 20px;">
+            <h4 class="font-weight-bold mb-3"><i class="fas fa-bullseye text-danger mr-2"></i> Vision & Goal</h4>
+            <p class="text-muted" style="line-height: 1.8;">
+                단순한 농업을 넘어 <strong>데이터와 소프트웨어가 결합된 정밀 농업</strong>을 지향합니다. 
+                현재 전북대학교 영농창업특성화사업단에서 스마트팜 전문 지식을 쌓고 있으며, 
+                최첨단 수경재배 시스템을 활용한 <strong>프리미엄 딸기 스마트팜 창업</strong>을 목표로 하고 있습니다.
+            </p>
+        </section>
+
+        <section class="mb-4 p-4 shadow-sm" style="background: white; border-radius: 20px;">
+            <h4 class="font-weight-bold mb-4"><i class="fas fa-code text-primary mr-2"></i> Technical Skills</h4>
+            
+            <div class="mb-3">
+                <div class="d-flex justify-content-between mb-1">
+                    <span class="font-weight-bold">Python (Flask, Web Scraping)</span>
+                    <span class="text-muted">75%</span>
+                </div>
+                <div class="progress" style="height: 10px; border-radius: 5px;">
+                    <div class="progress-bar bg-primary" style="width: 75%"></div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <div class="d-flex justify-content-between mb-1">
+                    <span class="font-weight-bold">Smart Farm IoT & Monitoring</span>
+                    <span class="text-muted">85%</span>
+                </div>
+                <div class="progress" style="height: 10px; border-radius: 5px;">
+                    <div class="progress-bar bg-success" style="width: 85%"></div>
+                </div>
+            </div>
+
+            <div>
+                <div class="d-flex justify-content-between mb-1">
+                    <span class="font-weight-bold">HTML5 / CSS3 / Bootstrap</span>
+                    <span class="text-muted">60%</span>
+                </div>
+                <div class="progress" style="height: 10px; border-radius: 5px;">
+                    <div class="progress-bar bg-info" style="width: 60%"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="p-4 shadow-sm" style="background: white; border-radius: 20px;">
+            <h4 class="font-weight-bold mb-3"><i class="fas fa-heart text-danger mr-2"></i> Interests</h4>
+            <div class="d-flex flex-wrap">
+                <span class="badge badge-light p-3 m-1 border" style="border-radius: 10px;">📈 주식  </span>
+                <span class="badge badge-light p-3 m-1 border" style="border-radius: 10px;">🎮 인디 게임</span>
+                <span class="badge badge-light p-3 m-1 border" style="border-radius: 10px;">🛌 효율적인 휴식</span>
+            </div>
+        </section>
+    </div>
+</div>
+{% endblock %}
