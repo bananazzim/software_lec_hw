@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="kr">
+</head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>구구단 출력하기</title>
+   
+    <h2>구구단 출력하기</h2>
+   
+
+   <body>
+    <form id="form_id" action="javascript:post_query()">
+        <input type="text" name="dan" value="숫자 입력하기">
+        <button type="submit">출력</button></form>
+<div id="results"></div>
+
+     <script>
+        function post_query() {
+        $.ajax({
+        type: "GET",
+        url: "http://127.0.0.1:5000/gugudan",
+        data: $("#form_id").serialize(),
+        success: update_result,
+        dataType: "html"
+        });
+        }
+        function update_result(data) {
+        $("#results").html(data);} </script>
+
+</body>
+</html>

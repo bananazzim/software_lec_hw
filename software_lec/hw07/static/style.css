@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    background-color: #fff5f5; 
+    text-align: center;
+    color: #333;
+}
+
+nav {
+    background: #ff6b6b; 
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(255, 107, 107, 0.2);
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 30px;
+    transition: all 0.3s ease; 
+}
+
+
+nav a:hover {
+    background-color: white;
+    color: #ff6b6b;
+}
+
+section {
+    background: white;
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+
+section:hover {
+    transform: translateY(-5px);
+}
+
+h1 { 
+    color: #ee5253; 
+    margin-bottom: 25px;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0,0,0,0.05);
+}
+
+th, td {
+    border: none;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 15px;
+}
+
+th { 
+    background-color: #ff6b6b; 
+    color: white; 
+}
+
+
+tr:hover td {
+    background-color: #fffafa;
+}
