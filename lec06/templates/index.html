@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row align-items-center">
+        <div class="col-lg-7">
+            <h1 class="mb-3">Welcome</h1>
+            <p class="lead">This is the home page for the Flask lecture app.</p>
+            <p>Use the navigation bar to move between the blog page and the about page.</p>
+
+            <button class="btn btn-primary mb-3" onclick="whatTimeIsIt()">What time is it?</button>
+
+            <div class="form-row align-items-end">
+                <div class="col-auto">
+                    <label for="inputA">a</label>
+                    <input id="inputA" class="form-control" value="1" onkeyup="doSomething()">
+                </div>
+                <div class="col-auto">
+                    <label for="inputB">b</label>
+                    <input id="inputB" class="form-control" value="2" onkeyup="doSomething()">
+                </div>
+            </div>
+
+            <p class="mt-3"><span id="valueA">1</span> + <span id="valueB">2</span> = <span id="valueC">3</span></p>
+            <a href="https://www.google.com" target="_blank" rel="noopener noreferrer">Go to Google</a>
+        </div>
+        <div class="col-lg-5 mt-4 mt-lg-0">
+            <img src="{{ url_for('static', filename='images/stay_funky.jpg') }}" class="img-fluid rounded" alt="Main image">
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script type="text/javascript" src="{{ url_for('static', filename='add_two_numbers.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='what_time_is_it.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,19 @@
+{%extends "layout.html" %}
+
+{%block content %}
+{% if posts|length > 0 %}
+{% for post in posts %}
+
+<div>
+    <p>제목 : {{post.title}} </p>
+    <p>내용: {{post.content}} </p>
+</div>
+{% endfor %}
+{% else %}
+<p>게시글이 없습니다.</p>
+
+{%endif %}
+
+{% endblock %}
+
+
