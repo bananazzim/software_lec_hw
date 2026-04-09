@@ -1,0 +1,81 @@
+/* 1. 전체 폰트 및 배경 설정 */
+body {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+    letter-spacing: -0.3px;
+}
+
+/* 2. 네비게이션 바 링크 디자인 */
+.custom-link {
+    font-weight: 500;
+    margin-left: 20px;
+    transition: color 0.3s ease;
+}
+
+/* 마우스를 올렸을 때 딸기색(붉은색)으로 변하는 애니메이션 효과 */
+.custom-link:hover {
+    color: #dc3545 !important; 
+}
+
+/* 3. 본문 박스(section) 디자인 - 세련된 카드 형태 */
+section {
+    background-color: #ffffff;
+    border-radius: 15px; /* 모서리를 둥글게 */
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* 은은하고 고급스러운 그림자 */
+    margin-bottom: 30px;
+}
+
+/* 4. 제목(h1) 디자인 포인트 */
+section h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    border-bottom: 3px solid #f8d7da; /* 제목 아래 연한 핑크색 밑줄 */
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+/* 5. 테이블 디자인 고급화 (딸기농장 계획표 페이지 적용) */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+}
+
+th, td {
+    padding: 18px 15px;
+    border-bottom: 1px solid #f0f0f0;
+    text-align: center;
+}
+
+thead th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #495057;
+    border-top: 2px solid #dc3545; /* 표 상단에 빨간색 포인트 선 */
+}
+
+/* 표의 줄에 마우스를 올렸을 때 옅은 붉은색 띄우기 */
+tbody tr:hover {
+    background-color: #fff5f5; 
+    transition: background-color 0.2s;
+}
+
+/* 6. 리스트 (자기소개 페이지) 깔끔하게 정리 */
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+ul li {
+    padding: 12px 0;
+    border-bottom: 1px dashed #e9ecef;
+    font-size: 16px;
+    color: #495057;
+}
+
+ul li:last-child {
+    border-bottom: none;
+}
