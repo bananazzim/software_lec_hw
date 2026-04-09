@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}About Me{% endblock %}
+
+{% block content %}
+<div class="container my-4">
+    <div class="row align-items-center my-3">
+        <div class="col-md-9">
+            <h1>About Me</h1>
+            <h2 class="h4">I am learning to build web pages with Flask.</h2>
+            <p>I enjoy working with HTML, CSS, JavaScript, and Python to make simple web services.</p>
+
+            <button class="btn btn-outline-primary" onclick="whatTimeIsIt()">What time is it?</button>
+            <hr />
+            <a href="{{ url_for('home') }}">Back to Home</a>
+        </div>
+        <div class="col-md-3 mt-3 mt-md-0">
+            <img src="{{ url_for('static', filename='images/boy_01.jpg') }}" class="img-fluid w-100 rounded" alt="Profile image">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <h2>Portfolio</h2>
+        </div>
+        <div class="col-sm col-lg-6 bg-info">
+            <img src="{{ url_for('static', filename='images/image_a.jpg') }}" class="img-fluid" alt="Portfolio A">
+        </div>
+        <div class="col-sm col-lg-3 bg-secondary">
+            <img src="{{ url_for('static', filename='images/image_b.jpg') }}" class="img-fluid" alt="Portfolio B">
+        </div>
+        <div class="col-sm col-lg-3 bg-warning">
+            <img src="{{ url_for('static', filename='images/image_c.jpg') }}" class="img-fluid" alt="Portfolio C">
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script type="text/javascript" src="{{ url_for('static', filename='what_time_is_it.js') }}"></script>
+{% endblock %}
