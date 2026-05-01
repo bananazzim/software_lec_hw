@@ -1,0 +1,18 @@
+{% extends "todo/base.html" %}
+
+{% block content %}
+  <h2>할 일 삭제 확인</h2>
+  
+  <!-- object는 삭제하려고 선택한 바로 그 데이터(할 일)를 의미해 -->
+  <p>정말로 "<strong>{{ object.title }}</strong>" 항목을 삭제하시겠습니까?</p>
+
+  <!-- 데이터베이스의 내용을 바꾸는 작업(삭제)이므로 반드시 POST 방식을 써야 해 -->
+  <form method="POST">
+      {% csrf_token %} <!-- 보안을 위한 필수 태그! -->
+      
+      <input type="submit" value="네, 삭제합니다" style="color: red;">
+      
+      <!-- 취소하고 싶을 때 돌아갈 링크 (상황에 맞게 index나 list로 수정 가능해) -->
+      <a href="{% url 'index' %}">아니요, 취소할래요</a>
+  </form>
+{% endblock %}

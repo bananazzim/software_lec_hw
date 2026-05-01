@@ -1,0 +1,34 @@
+{% extends "todo/base.html" %}
+
+{% block content %}
+<h2>📝 {{ todo_list.title }}</h2>
+
+<ul>
+    {% for item in object_list %}
+    <li>
+        <!-- 1. 텍스트 정보 묶음 -->
+        <div class="item-info">
+            <b style="font-size: 16px;">{{ item.title }}</b>
+            {% if item.description %} 
+                <span class="description">{{ item.description }}</span> 
+            {% endif %}
+            {% if item.due_date %} 
+                <div class="due-date">⏰ 마감: {{ item.due_date|date:"Y-m-d" }}</div> 
+            {% endif %}
+        </div>
+        
+        <!-- 2. 버튼 묶음 -->
+        <div class="item-actions">
+            <a href="{% url 'item-update' item.id %}" class="btn-edit">수정</a>
+            <a href="{% url 'item-delete' item.id %}" class="btn-delete">삭제</a>
+        </div>
+    </li>
+    {% empty %}
+    <li style="justify-content: center; color: #999;">항목이 없습니다. 텅~</li>
+    {% endfor %}
+</ul>
+
+<!-- 3. 하단 액션 버튼 -->
+<a href="{% url 'item-add' todo_list.id %}" class="btn-action">+ 새 항목 추가</a>
+<a href="{% url 'index' %}" class="btn-action btn-secondary">← 목록으로</a>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "todo/base.html" %}
+
+{% block content %}
+<h2>{% if object %}목록 수정{% else %}새 목록 만들기{% endif %}</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">저장</button>
+</form>
+<a href="{% url 'index' %}">← 돌아가기</a>
+{% endblock %}

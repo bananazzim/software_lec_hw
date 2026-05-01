@@ -1,0 +1,16 @@
+{% extends "todo/base.html" %}
+
+{% block content %}
+<h2>할 일 목록</h2>
+<ul>
+    {% for list in object_list %}
+    <li>
+        <a href="{% url 'list' list.id %}">{{ list.title }}</a>
+        <a href="{% url 'list-update' list.id %}">[수정]</a>
+    </li>
+    {% empty %}
+    <li>할 일 목록이 없습니다.</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'list-add' %}">+ 새 목록 추가</a>
+{% endblock %}
