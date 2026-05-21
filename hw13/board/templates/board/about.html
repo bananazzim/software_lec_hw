@@ -1,0 +1,227 @@
+{% extends 'board/base.html' %}
+
+{% load static %}
+
+{% block title %}
+About
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+.about-hero{
+
+    text-align:center;
+
+    margin-bottom:70px;
+}
+
+.about-profile{
+
+    width:180px;
+    height:180px;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    border:5px solid #4CAF50;
+
+    box-shadow:0 0 30px rgba(76,175,80,0.5);
+
+    margin-bottom:30px;
+}
+
+.about-card{
+
+    background:#1e1e1e;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    transition:0.3s;
+
+    height:100%;
+}
+
+.about-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 10px 30px rgba(76,175,80,0.2);
+}
+
+.timeline{
+
+    border-left:3px solid #4CAF50;
+
+    padding-left:20px;
+}
+
+.timeline-item{
+
+    margin-bottom:30px;
+}
+
+.timeline-year{
+
+    color:#4CAF50;
+
+    font-weight:bold;
+}
+
+</style>
+
+<div class="about-hero">
+
+    <img
+      src="{% static 'images/profile.png' %}"
+      class="about-profile"
+    >
+
+    <h1 class="display-3 fw-bold">
+        About Me
+    </h1>
+
+    <p class="lead mt-3"
+       style="color:#d0d0d0;">
+
+        Smart Farm · AI · Django Developer
+
+    </p>
+
+</div>
+
+<div class="row mb-5">
+
+    <div class="col-md-6 mb-4">
+
+        <div class="about-card">
+
+            <h2 style="color:white;">
+                소개
+            </h2>
+
+            <p class="mt-4"
+               style="color:#d0d0d0;">
+
+                스마트팜과 AI 기술을 활용한
+                미래 농업 솔루션에 관심이 있습니다.
+
+            </p>
+
+            <p style="color:#d0d0d0;">
+
+                Python과 Django를 기반으로
+                데이터 분석과 웹 개발을 공부하고 있습니다.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-6 mb-4">
+
+        <div class="about-card">
+
+            <h2 style="color:white;">
+                관심 분야
+            </h2>
+
+            <ul class="mt-4"
+                style="color:#d0d0d0;">
+
+                <li class="mb-3">
+                    AI 기반 농업 자동화
+                </li>
+
+                <li class="mb-3">
+                    스마트팜 데이터 분석
+                </li>
+
+                <li class="mb-3">
+                    Django 웹 개발
+                </li>
+
+                <li class="mb-3">
+                    머신러닝 및 예측 모델
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
+
+<h2 class="mb-5 fw-bold">
+    Journey
+</h2>
+
+<div class="about-card">
+
+    <div class="timeline">
+
+        <div class="timeline-item">
+
+            <div class="timeline-year">
+                2025
+            </div>
+
+            <h4>
+                Django 웹 개발 시작
+            </h4>
+
+            <p style="color:#d0d0d0;">
+
+                CBV 기반 블로그 및 포트폴리오 제작
+
+            </p>
+
+        </div>
+
+        <div class="timeline-item">
+
+            <div class="timeline-year">
+                2025
+            </div>
+
+            <h4>
+                스마트팜 데이터 분석 연구
+            </h4>
+
+            <p style="color:#d0d0d0;">
+
+                농업 환경 데이터 기반 연구 진행
+
+            </p>
+
+        </div>
+
+        <div class="timeline-item">
+
+            <div class="timeline-year">
+                2026
+            </div>
+
+            <h4>
+                AI 프로젝트 개발
+            </h4>
+
+            <p style="color:#d0d0d0;">
+
+                운동 부상 상담 챗봇 개발
+
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
