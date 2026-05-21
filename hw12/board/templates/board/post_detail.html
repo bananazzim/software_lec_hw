@@ -6,28 +6,117 @@
 
 {% block content %}
 
-<div class="card p-5">
+<div class="card p-5"
+     style="
+     background:#1a1a1a;
+     border-radius:25px;
+     max-width:900px;
+     margin:auto;
+     ">
+    {% if post.head_image %}
 
-    <h1 class="mb-4">
-        {{ post.title }}
-    </h1>
+    <img
+      src="{{ post.head_image.url }}"
+      class="img-fluid rounded mb-4"
+      style="
+        max-height:500px;
+        object-fit:cover;
+        width:100%;
+        border-radius:20px;
+        "
+    >
 
-    <p class="text-secondary">
-        <p style="color:#d0d0d0;"></p>
+    {% else %}
+
+    <img
+      src="https://picsum.photos/seed/{{ post.id }}/900/400"
+      class="img-fluid rounded mb-4"
+      style="
+        max-height:500px;
+        object-fit:cover;
+        width:100%;
+        border-radius:20px;
+"
+    >
+
+    {% endif %}
+
+    <h1 class="mb-4"
+    style="
+    color:#ffffff;
+    font-weight:800;
+    font-size:48px;
+    line-height:1.2;
+    ">
+
+    {{ post.title }}
+
+</h1>
+
+    <p style="color:#9e9e9e;
+    font-size:14px;
+    letter-spacing:1px;
+    ">
+    {{ post.created_at }}
     </p>
 
-    <hr>
+    <hr style="
+    border:1px solid #333;
+    margin-bottom:30px;
+    ">
 
-    <p class="fs-5">
-        {{ post.content }}
-    </p>
+   <p class="fs-5"
+   style="
+   color:#f5f5f5;
+   line-height:1.8;
+   ">
 
-    <a href="/posts/"
-       class="btn btn-outline-success mt-4">
+    {{ post.content }}
 
-        목록으로
+</p>
 
-    </a>
+{% if post.file_upload %}
+
+<a href="{{ post.file_upload.url }}"
+   class="btn btn-success mt-3"
+   download>
+
+    <i class="fa-solid fa-download"></i>
+
+    다운로드 -
+
+    {% if post.get_file_ext == 'csv' %}
+
+        📄 CSV
+
+    {% elif post.get_file_ext == 'xlsx' %}
+
+        📊 Excel
+
+    {% elif post.get_file_ext == 'docx' %}
+
+        📝 Word
+
+    {% else %}
+
+        📁 File
+
+    {% endif %}
+
+    {{ post.get_file_name }}
+
+</a>
+
+{% endif %}
+
+<br>
+
+<a href="/posts/"
+   class="btn btn-outline-success mt-4">
+
+    목록으로
+
+</a>
 
 </div>
 

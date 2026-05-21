@@ -9,14 +9,33 @@ Posts
 <h1 class="mb-5">
     게시글 목록
 </h1>
-
 <div class="row">
 
 {% for post in posts %}
 
+
+
 <div class="col-md-4 mb-4">
 
     <div class="card h-100 p-3">
+
+        {% if post.head_image %}
+
+        <img
+          src="{{ post.head_image.url }}"
+          class="card-img-top"
+          style="height:220px; object-fit:cover; border-radius:15px;"
+        >
+
+        {% else %}
+
+        <img
+          src="https://picsum.photos/seed/{{ post.id }}/600/300"
+          class="card-img-top"
+          style="height:220px; object-fit:cover; border-radius:15px;"
+        >
+
+        {% endif %}
 
         <div class="card-body">
 
