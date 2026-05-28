@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load static blog_extras %}
+
+{% block content %}
+<section class="hero-band">
+  <div class="hero-copy">
+    <p class="eyebrow">{% if language == 'en' %}Bilingual essay journal{% else %}한영 에세이 저널{% endif %}</p>
+    <h1>{% if profile %}{{ profile|profile_tagline:language }}{% else %}{% if language == 'en' %}Writing with calm focus.{% else %}차분하게 생각하고 기록합니다.{% endif %}{% endif %}</h1>
+    <p class="hero-summary">
+      {% if profile %}
+        {{ profile|profile_bio:language|linebreaksbr }}
+      {% else %}
+        {% if language == 'en' %}A personal space for essays about craft, technology, and everyday attention.{% else %}기술, 일, 일상의 감각을 담아내는 개인 에세이 공간입니다.{% endif %}
+      {% endif %}
+    </p>
+    <div class="hero-actions">
+      <a class="button primary" href="{% if language == 'en' %}{% url 'post_list_en' %}{% else %}{% url 'post_list' %}{% endif %}">
+        {% if language == 'en' %}Read essays{% else %}에세이 읽기{% endif %}
+      </a>
+      <a class="button subtle" href="{% if language == 'en' %}{% url 'about_en' %}{% else %}{% url 'about' %}{% endif %}">
+        {% if language == 'en' %}About me{% else %}소개 보기{% endif %}
+      </a>
+    </div>
+  </div>
+  <figure class="hero-image">
+    {% if profile.hero_image %}
+      <img src="{{ profile.hero_image.url }}" alt="{{ profile.hero_image_alt }}">
+    {% else %}
+      <img src="{% static 'img/essay-hero.png' %}" alt="A calm editorial writing desk by a window">
+    {% endif %}
+  </figure>
+</section>
+
+{% if featured_post %}
+<section class="feature-strip">
+  <div>
+    <p class="eyebrow">{% if language == 'en' %}Featured essay{% else %}대표 에세이{% endif %}</p>
+    <h2><a href="{{ featured_post.get_absolute_url }}">{{ featured_post.title }}</a></h2>
+    <p>{{ featured_post.summary }}</p>
+  </div>
+  <a class="text-link" href="{{ featured_post.get_absolute_url }}">
+    {% if language == 'en' %}Continue reading{% else %}계속 읽기{% endif %}
+  </a>
+</section>
+{% endif %}
+
+<section class="content-grid">
+  <div>
+    <div class="section-heading">
+      <p class="eyebrow">{% if language == 'en' %}Latest notes{% else %}최근 글{% endif %}</p>
+      <h2>{% if language == 'en' %}Essays in progress{% else %}쌓여가는 생각들{% endif %}</h2>
+    </div>
+    <div class="post-stack">
+      {% for post in latest_posts %}
+        {% include "blog/partials/post_row.html" with post=post %}
+      {% empty %}
+        <p class="muted">{% if language == 'en' %}No published essays yet. Add one in Django admin or run the seed command.{% else %}아직 공개된 글이 없습니다. Django admin에서 글을 쓰거나 seed 명령을 실행하세요.{% endif %}</p>
+      {% endfor %}
+    </div>
+  </div>
+
+  <aside class="topic-panel">
+    <p class="eyebrow">{% if language == 'en' %}Topics{% else %}주제{% endif %}</p>
+    {% for category in categories %}
+      <a class="topic-link" href="{% if language == 'en' %}{% url 'category_detail_en' category.slug %}{% else %}{% url 'category_detail' category.slug %}{% endif %}">
+        <span>{{ category|category_title:language }}</span>
+        <small>{{ category|category_description:language }}</small>
+      </a>
+    {% empty %}
+      <p class="muted">{% if language == 'en' %}Topics appear after posts are published.{% else %}공개 글이 생기면 주제가 표시됩니다.{% endif %}</p>
+    {% endfor %}
+  </aside>
+</section>
+{% endblock %}

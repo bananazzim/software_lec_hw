@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}{% if language == 'en' %}Search{% else %}검색{% endif %} · Essay Notes{% endblock %}
+
+{% block content %}
+<section class="page-intro">
+  <p class="eyebrow">{% if language == 'en' %}Search{% else %}검색{% endif %}</p>
+  <h1>{% if language == 'en' %}Find an essay{% else %}글 찾기{% endif %}</h1>
+  <form class="large-search" method="get">
+    <input type="search" name="q" value="{{ query }}" placeholder="{% if language == 'en' %}Keyword, topic, phrase{% else %}키워드, 주제, 문장{% endif %}" autofocus>
+    <button type="submit">{% if language == 'en' %}Search{% else %}검색{% endif %}</button>
+  </form>
+</section>
+
+<section class="archive-layout single">
+  <div class="post-stack">
+    {% for post in posts %}
+      {% include "blog/partials/post_row.html" with post=post %}
+    {% empty %}
+      {% if query %}
+        <p class="muted">{% if language == 'en' %}No essays found for this search.{% else %}검색 결과가 없습니다.{% endif %}</p>
+      {% else %}
+        <p class="muted">{% if language == 'en' %}Enter a keyword to search published essays.{% else %}검색어를 입력하면 공개된 글을 찾을 수 있습니다.{% endif %}</p>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% load static blog_extras %}
+<!doctype html>
+<html lang="{{ language|default:'ko' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{% if site_profile %}{{ site_profile|profile_name:language }}{% else %}Essay Notes{% endif %}{% endblock %}</title>
+  <meta name="description" content="{% block meta_description %}{% if site_profile %}{{ site_profile|profile_tagline:language }}{% endif %}{% endblock %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+KR:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/site.css' %}">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="{% if language == 'en' %}{% url 'home_en' %}{% else %}{% url 'home' %}{% endif %}">
+      <span class="brand-mark">N</span>
+      <span>{% if site_profile %}{{ site_profile|profile_name:language }}{% else %}Essay Notes{% endif %}</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a class="{% if active_nav == 'home' %}is-active{% endif %}" href="{% if language == 'en' %}{% url 'home_en' %}{% else %}{% url 'home' %}{% endif %}">
+        {% if language == 'en' %}Home{% else %}홈{% endif %}
+      </a>
+      <a class="{% if active_nav == 'essays' %}is-active{% endif %}" href="{% if language == 'en' %}{% url 'post_list_en' %}{% else %}{% url 'post_list' %}{% endif %}">
+        {% if language == 'en' %}Essays{% else %}에세이{% endif %}
+      </a>
+      <a class="{% if active_nav == 'about' %}is-active{% endif %}" href="{% if language == 'en' %}{% url 'about_en' %}{% else %}{% url 'about' %}{% endif %}">
+        {% if language == 'en' %}About{% else %}소개{% endif %}
+      </a>
+    </nav>
+    <div class="header-actions">
+      <form class="search-form" action="{% if language == 'en' %}{% url 'search_en' %}{% else %}{% url 'search' %}{% endif %}" method="get">
+        <input type="search" name="q" value="{{ query }}" placeholder="{% if language == 'en' %}Search{% else %}검색{% endif %}">
+      </form>
+      <a class="language-pill" href="{{ language_switch_url }}">{{ other_language|upper }}</a>
+    </div>
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <p>{% if site_profile %}{{ site_profile|profile_name:language }}{% else %}Essay Notes{% endif %}</p>
+    <p>{% if language == 'en' %}Quiet notes on craft, code, and attention.{% else %}일과 생각, 기술과 생활을 천천히 기록합니다.{% endif %}</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static blog_extras %}
+
+{% block title %}{% if language == 'en' %}About{% else %}소개{% endif %} · {% if site_profile %}{{ site_profile|profile_name:language }}{% else %}Essay Notes{% endif %}{% endblock %}
+
+{% block content %}
+<section class="about-layout">
+  <div class="about-copy">
+    <p class="eyebrow">{% if language == 'en' %}About{% else %}소개{% endif %}</p>
+    <h1>{% if profile %}{{ profile|profile_name:language }}{% else %}{% if language == 'en' %}A quiet personal blog{% else %}조용한 개인 블로그{% endif %}{% endif %}</h1>
+    <p class="lead">{% if profile %}{{ profile|profile_tagline:language }}{% else %}{% if language == 'en' %}Essays about work, technology, and careful living.{% else %}일, 기술, 생활을 차분하게 기록합니다.{% endif %}{% endif %}</p>
+    <div class="rich-text">
+      {% if profile %}
+        {{ profile|profile_bio:language|linebreaks }}
+      {% else %}
+        <p>{% if language == 'en' %}Use Django admin to add your profile and shape this page into your own introduction.{% else %}Django admin에서 프로필을 추가하면 이 페이지가 나만의 소개로 채워집니다.{% endif %}</p>
+      {% endif %}
+    </div>
+    {% if profile %}
+      <div class="contact-row">
+        {% if profile.contact_email %}<a href="mailto:{{ profile.contact_email }}">{{ profile.contact_email }}</a>{% endif %}
+        {% if profile.github_url %}<a href="{{ profile.github_url }}">GitHub</a>{% endif %}
+        {% if profile.linkedin_url %}<a href="{{ profile.linkedin_url }}">LinkedIn</a>{% endif %}
+        {% if profile.instagram_url %}<a href="{{ profile.instagram_url }}">Instagram</a>{% endif %}
+      </div>
+    {% endif %}
+  </div>
+  <figure class="about-image">
+    {% if profile.hero_image %}
+      <img src="{{ profile.hero_image.url }}" alt="{{ profile.hero_image_alt }}">
+    {% else %}
+      <img src="{% static 'img/essay-hero.png' %}" alt="A calm editorial writing desk by a window">
+    {% endif %}
+  </figure>
+</section>
+{% endblock %}

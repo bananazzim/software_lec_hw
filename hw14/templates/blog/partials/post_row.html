@@ -1,0 +1,17 @@
+{% load blog_extras %}
+<article class="post-row">
+  <div>
+    <p class="post-meta">
+      {{ post.published_at|date:"Y.m.d" }}
+      {% if post.category %} · {{ post.category|category_title:language }}{% endif %}
+      · {{ post.reading_minutes }} min
+    </p>
+    <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+    <p>{{ post.summary }}</p>
+    <div class="tag-list">
+      {% for tag in post.tags.all %}
+        <span>#{{ tag.name }}</span>
+      {% endfor %}
+    </div>
+  </div>
+</article>

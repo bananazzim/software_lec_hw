@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: personal-essay-blog
+    runtime: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn config.wsgi:application"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.13.9
+      - key: DEBUG
+        value: "False"
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ALLOWED_HOSTS
+        sync: false
+      - key: CSRF_TRUSTED_ORIGINS
+        sync: false
+      - key: DATABASE_URL
+        fromDatabase:
+          name: personal-essay-blog-db
+          property: connectionString
+
+databases:
+  - name: personal-essay-blog-db
+    plan: free

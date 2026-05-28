@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load blog_extras %}
+
+{% block title %}{{ heading }} · {% if site_profile %}{{ site_profile|profile_name:language }}{% else %}Essay Notes{% endif %}{% endblock %}
+
+{% block content %}
+<section class="page-intro">
+  <p class="eyebrow">{% if category %}{% if language == 'en' %}Topic{% else %}주제{% endif %}{% else %}{% if language == 'en' %}Archive{% else %}아카이브{% endif %}{% endif %}</p>
+  <h1>{{ heading }}</h1>
+  {% if category %}
+    <p>{{ category|category_description:language }}</p>
+  {% else %}
+    <p>{% if language == 'en' %}Collected essays on craft, code, and everyday attention.{% else %}일, 기술, 일상의 감각에 관해 천천히 쌓아가는 글입니다.{% endif %}</p>
+  {% endif %}
+</section>
+
+<section class="archive-layout">
+  <div class="post-stack">
+    {% for post in posts %}
+      {% include "blog/partials/post_row.html" with post=post %}
+    {% empty %}
+      <p class="muted">{% if language == 'en' %}No essays match this view yet.{% else %}아직 표시할 글이 없습니다.{% endif %}</p>
+    {% endfor %}
+  </div>
+  {% if categories %}
+  <aside class="topic-panel compact">
+    <p class="eyebrow">{% if language == 'en' %}Browse{% else %}둘러보기{% endif %}</p>
+    {% for item in categories %}
+      <a class="topic-link" href="{% if language == 'en' %}{% url 'category_detail_en' item.slug %}{% else %}{% url 'category_detail' item.slug %}{% endif %}">
+        <span>{{ item|category_title:language }}</span>
+      </a>
+    {% endfor %}
+  </aside>
+  {% endif %}
+</section>
+{% endblock %}
